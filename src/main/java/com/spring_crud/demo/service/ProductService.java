@@ -8,10 +8,9 @@ import org.springframework.stereotype.Service;
 import com.spring_crud.demo.dao.ProductDao;
 import com.spring_crud.demo.model.Product;
 
-
 @Service
 public class ProductService {
-	
+
 	@Autowired
 	ProductDao productDao;
 
@@ -21,30 +20,31 @@ public class ProductService {
 	}
 
 	public Product getProduct(long id) {
-		Product pro1 = productDao.getById(id);
-		return pro1;
+//		Product pro1 = productDao.getById(id);
+		return productDao.findById(id).get();
 	}
 
 	public List<Product> getAllProduct() {
 		List<Product> list = productDao.findAll();
 		return list;
 	}
-	
+
 	public Product updateProduct(Product product, long id) {
-	  Product pro = productDao.getById(id);
-	  pro.setProductName(product.getProductName());
-	  pro.setProductPrice(product.getProductPrice());
-	  pro.setProductCompany(product.getProductCompany());
-	  
-	  productDao.save(pro);
-		
+		Product pro = productDao.getById(id);
+		pro.setProductName(product.getProductName());
+		pro.setProductPrice(product.getProductPrice());
+		pro.setProductCompany(product.getProductCompany());
+
+		productDao.save(pro);
+
 		return product;
 	}
-	
+
 	public Boolean deleteProduct(long id) {
-		productDao.deleteById(id);;
+		productDao.deleteById(id);
+		;
 		return true;
-		
+
 	}
 
 }
