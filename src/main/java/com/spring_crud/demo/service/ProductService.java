@@ -42,7 +42,6 @@ public class ProductService {
 
 	public Boolean deleteProduct(long id) {
 		productDao.deleteById(id);
-		;
 		return true;
 
 	}

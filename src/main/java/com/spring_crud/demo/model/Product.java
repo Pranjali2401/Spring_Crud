@@ -10,26 +10,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="product_table")
-public class Product implements Serializable{
-	
-	/**
-	 * 
-	 */
+@Table(name = "product_table")
+public class Product implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
-	@Column(name="product_id")
+	@Column(name = "product_id")
 	private long id;
-	
-	@Column(name="product_name")
+
+	@Column(name = "product_name")
 	private String productName;
-	
-	@Column(name="product_price")
+
+	@Column(name = "product_price")
 	private long productPrice;
-	
-	@Column(name="product_company")
+
+	@Column(name = "product_company")
 	private String productCompany;
 
 	public long getId() {
@@ -87,8 +84,5 @@ public class Product implements Serializable{
 		return "Product [id=" + id + ", productName=" + productName + ", productPrice=" + productPrice
 				+ ", productCompany=" + productCompany + "]";
 	}
-	
-	
-	
-	
+
 }
